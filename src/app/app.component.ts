@@ -2,30 +2,47 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Events } from "ionic-angular";
+import {Storage} from "@ionic/storage";
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+
+
+    @ViewChild(Nav) nav: Nav;
+
+  rootPage: any ;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public events: Events,private storage:Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: 'HomePage' },
+      { title: 'Settings', component: 'SettingsPage' },
+      { title: 'Logout', component: 'LoginPage' },
+
+
     ];
 
+    storage.get('user.ID').then((val)=>{
+      if(val!=0 && val!=null){
+        this.rootPage='HomePage';
+      }
+      else {
+        this.rootPage='LoginPage';
+      }
+    })
+
   }
+
+
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -40,5 +57,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+    if(page.title== 'Logout'){
+      this.storage.set('user.ID',0);
+      this.nav.setRoot('LoginPage');
+    }
   }
 }

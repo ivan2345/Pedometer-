@@ -1,0 +1,50 @@
+
+<ion-content id="background" class="bkg">
+  <h1>Pedometer App</h1>
+  <ion-card >
+    <ion-card-header>
+      <h1>Login</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" #username></ion-input>
+        </ion-item>
+        <ion-item padding-bottom="3%">
+          <ion-label floating>Password</ion-label>
+          <ion-input type="Password" #password></ion-input>
+        </ion-item>
+        <button ion-button round color="danger" (click)="gotoHome()" block outline>Login</button>
+        <button ion-button round color="danger" (click)="gotoRegister()" block outline>Register</button>
+      </ion-list>
+      <b>OR</b>
+      <button ion-button round color="primary" (click)="gotoHome()" ion-left block>
+
+        <ion-icon name="logo-facebook"></ion-icon>
+        <div>Login with facebook</div>
+      </button>
+
+      <button ion-button color="danger" round (click)="gotoHome()"  ion-left block>
+
+        <ion-icon name="logo-google"></ion-icon>
+        <div>Login with google</div>
+      </button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <p align="center ">
+    <img src="{{myphoto}}" alt="">
+
+  </p>
+
+  <p align="center ">
+    <img src="{{screens}}" alt="">
+
+  </p>
+  <img src="{{ screens }}" alt="">
+
+</ion-content>
