@@ -1,13 +1,35 @@
 page-settings {
 
+
+  .content{
+    padding-left: 25%;
+    padding-right: 25%;
+  }
   #cardsettings{
 
-    padding-left: 10%;
-    padding-right: 10%;
+    background-image: url("../assets/imgs/background settings.png");
 
+
+
+    text-align: center;
+    border-radius: 15px 50px 30px;
+
+    height: 150px;
+    width: 95%;
+    padding-top: 10%;
+    padding-bottom: 70%;
+    padding-left: 15%;
+    padding-right: 15%;
 
 
   }
+
+  .container{
+
+
+  }
+
+
 }
 
 .button{
@@ -15,3 +37,4 @@ page-settings {
 
   padding-right: 5%;
 }
+

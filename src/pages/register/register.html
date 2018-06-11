@@ -13,22 +13,27 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
+<ion-content padding id="background">
 
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text" #username></ion-input>
-    </ion-item>
+  <div id="container">
+      <ion-card>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" #username></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" #password></ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" #password></ion-input>
+        </ion-item>
 
-  </ion-list>
 
-  <div padding>
-    <button block ion-button (click)="registerUser()" item-left>Register</button>
+
+
+
+        <div padding>
+          <button block ion-button (click)="registerUser()" item-left>Register</button>
+        </div>
+      </ion-card>
   </div>
 </ion-content>
